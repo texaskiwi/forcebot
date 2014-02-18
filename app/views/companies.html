@@ -1,0 +1,11 @@
+ Search <input type="text" ng-model="searchText"></input>
+
+        <p>{{searchText}}</p>
+
+        <h3>Companies</h3>
+        <table>
+            <tr ng-repeat="coy in companies | filter:searchText">
+                <td>{{ coy.name }}</td>
+                <td>{{ coy.total | currency}}</td>
+            </tr>
+        </table>
