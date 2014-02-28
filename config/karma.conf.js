@@ -3,11 +3,12 @@ module.exports = function(config){
     basePath : '../',
 
     files : [
-      'app/lib/angular/angular.js',
-      'app/lib/angular/angular-*.js',
+      'http://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js',
+      'http://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular-route.js',
+      'http://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular-animate.js',
       'test/lib/angular/angular-mocks.js',
-      'app/js/**/*.js',
-      'test/unit/**/*.js'
+      'app/scripts/**/*.js',
+      'test/UnitTests/**/*.js'
     ],
 
     exclude : [
