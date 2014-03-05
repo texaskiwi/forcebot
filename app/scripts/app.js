@@ -1,8 +1,10 @@
+'use strict';
+
 angular.module('forcebot', [
   'ngRoute',
+  'forcebot.services',
   'forcebot.controllers',
-  'forcebot.directives',
-  'forcebot.services'
+  'forcebot.directives'
 ]).
 /********************
     Route Provider
