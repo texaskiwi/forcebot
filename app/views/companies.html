@@ -2,10 +2,11 @@
 
         <p>{{searchText}}</p>
 
-        <h3>Companies</h3>
+        <h3>Portfolio</h3>
         <table>
-            <tr ng-repeat="coy in companies | filter:searchText">
-                <td>{{ coy.name }}</td>
-                <td>{{ coy.total | currency}}</td>
+            <tr ng-repeat="coy in stocks | filter:searchText">
+                <td>{{ coy.Name }}</td>
+                <!--<td>{{ coy.total | currency}}</td>-->
             </tr>
         </table>
+
