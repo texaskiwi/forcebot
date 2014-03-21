@@ -10,8 +10,14 @@ angular.module('forcebot.directives', []).
 
 
    .directive('portfolio', function () {
-      return {
-          templateUrl: 'views/companies.html'
-      };
-  });
+       return {
+           templateUrl: 'views/portfolio.html'
+       };
+   })
+
+   .directive('addStockForm', function () {
+       return {
+           templateUrl: 'views/addStockForm.html'
+       };
+   });
 

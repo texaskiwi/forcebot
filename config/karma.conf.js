@@ -1,11 +1,13 @@
 module.exports = function(config){
     config.set({
     basePath : '../',
-
+    
     files : [
       'http://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js',
       'http://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular-route.js',
       'http://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular-animate.js',
+      'http://cdn.jsdelivr.net/restangular/latest/restangular.min.js"></script>',
+      'http://cdn.jsdelivr.net/lodash/2.1.0/lodash.compat.min.js"></script> ',
       'test/lib/angular/angular-mocks.js',
       'app/scripts/**/*.js',
       'test/UnitTests/**/*.js'

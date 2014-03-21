@@ -11,7 +11,7 @@ describe('Forcebot', function () {
     });
 
     it('should list the portfolio of the current user', function () {
-         expect(element.all(by.css('[ng-view] h2')).first().getText()).
+         expect(element('h2').getText()).
         toMatch(/Portfolio/);
     });
 
