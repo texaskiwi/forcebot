@@ -1,29 +1,87 @@
 <!DOCTYPE html>
-
-<html ng-app="forcebot">
+<html ng-app="forcebot" lang="en">
     <head>
         <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>ForceBot</title>
         <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-        <link href="styles/ForceBot.css">
+        <link href="styles/ForceBot.css" rel="stylesheet">
+        <link href="styles/OffCanvas.css" rel="stylesheet">
+        <!-- consider user-scalable=no to make app feel native on android/ios -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
     </head>
     <body ng-controller="ForcebotController">
-        
-        <navheader></navheader>
 
-       
-        <div ng-view></div>
 
-        
+<div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">{{title}}</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!-- /.nav-collapse -->
+      </div><!-- /.container -->
+    </div><!-- /.navbar -->
+
+    <div class="container">
+
+    <div showhide-side-container></div>
+
+
+      <hr>
+
+      <footer>
         <div app-version></div>
+      </footer>
+
+    </div><!-- end container-->
+
+
+
+
+
+
+        
+      
+
+
+
+
+
+
+
+
+
+
+
 
         <!-- Angular scripts -->
         <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular-route.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular-animate.js"></script>
+        <!--Bootstrap requires JQuery-->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        
+        <script src="//cdn.jsdelivr.net/lodash/2.1.0/lodash.compat.min.js"></script>
         <script src="//cdn.jsdelivr.net/restangular/latest/restangular.min.js"></script>
-        <script src="//cdn.jsdelivr.net/lodash/2.1.0/lodash.compat.min.js"></script> 
+         
 
         <!-- Application scripts -->
         <script src="scripts/app.js"></script>
@@ -31,6 +89,10 @@
         <script src="scripts/controllers.js"></script>
         <script src="scripts/filters.js"></script>
         <script src="scripts/directives.js"></script>
+
+
+        <!-- TODO rewrite angular style -->
+        <script src="scripts/libext/effects.js"></script>
 
     </body>
 </html>

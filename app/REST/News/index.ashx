@@ -1,4 +1,4 @@
-﻿<%@ WebHandler Language="C#" Class="portfolio" Debug="true" %>
+﻿<%@ WebHandler Language="C#" Class="news" Debug="true" %>
 
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.IO;
 using System.Web;
 using System.Runtime.Serialization.Json;
 
-public class portfolio : IHttpHandler
+public class news : IHttpHandler
 {
 
     public void ProcessRequest(HttpContext context)
@@ -25,7 +25,7 @@ public class portfolio : IHttpHandler
                                        "database=forcebot; " +
                                        "connection timeout=30"))
         {
-            string query = "SELECT * FROM stock";
+            string query = "SELECT * FROM news";
             sqlConnection.Open();
             SqlCommand queryCommand = new SqlCommand(query, sqlConnection);
             SqlDataReader sqlReader = queryCommand.ExecuteReader();
@@ -48,9 +48,7 @@ public class portfolio : IHttpHandler
                 String symbol = row["symbol"].ToString();
                 String id = row["stock_id"].ToString();
 
-                int positiveOrNegative = random.Next(2) == 0 ? -1 : 1;                
-                
-                Stock stock = new Stock() { Name = name, Symbol = symbol, Id = id, ChangeInPriceToday = (Decimal)random.NextDouble() * 10 * positiveOrNegative, LastPrice = (Decimal)random.NextDouble() * 100 };
+                Stock stock = new Stock() { Name = name, Symbol = symbol, Id = id, ChangeInPriceToday = (Decimal)random.NextDouble() * 10, LastPrice = (Decimal)random.NextDouble() * 100 };
                 stockList.Add(stock);
 
 

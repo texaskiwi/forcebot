@@ -1,13 +1,24 @@
- Search <input type="text" ng-model="searchText"></input>
+<table>
+    <tr ng-repeat="coy in stocks" class="portfolioRow">
+        <td>
+            <a href="#" 
+            ng-class="{active: $first}"
+            class="list-group-item"> 
+                {{ coy.Symbol }} 
+            
+            </a>
+        </td>
+        <td class="money" ng-class="{
+                valueIncrease: coy.ChangeInPriceToday > 0,
+                valueDecrease: coy.ChangeInPriceToday < 0
+            }">{{ coy.ChangeInPriceToday | currencyMarket}}</td>
+        <td class="money">{{ coy.LastPrice | currency}}</td>
+    </tr>
+</table>
 
-        <p>{{searchText}}</p>
 
-        <h2>Portfolio</h2>
-        
-        <table>
-            <tr ng-repeat="coy in stocks | filter:searchText">
-                <td rowspan="2">{{ coy.Name }}</td>
-                <!--<td>{{ coy.total | currency}}</td>-->
-            </tr>
-        </table>
+
+
+
+
 

@@ -2,9 +2,10 @@
 
 angular.module('forcebot', [
   'ngRoute',
+  'forcebot.filters',
   'forcebot.services',
   'forcebot.controllers',
-  'forcebot.directives'
+  'forcebot.directives',
 ]).
 /********************
     Route Provider

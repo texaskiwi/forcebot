@@ -11,7 +11,7 @@ angular.module('forcebot.controllers', [])
 .controller('ForcebotController', ['$scope', 'portfolioService', function ($scope, portfolioService) {
 
 
-    $scope.title = "Forcebot service test";
+    $scope.title = "Forcebot";
     var portfolioPromise = portfolioService.getCurrentPortfolio();
 
     // uses Restangular enhanced promise, $object is populated when the server returns information

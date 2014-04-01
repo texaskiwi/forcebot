@@ -30,7 +30,7 @@ describe('service', function () {
                 
 
                 expect(expect(testStock).not.toBe(null));
-                //expect(1).toEqual(1);
+                
 
             }));
     });

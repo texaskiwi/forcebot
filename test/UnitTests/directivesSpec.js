@@ -14,4 +14,22 @@ describe('directives', function() {
       });
     });
   });
+
+
+  //TODO: showHideContainerDirective
+
+//  describe('priceMovement', function(){
+//      it('should set the class of the element to positivePrice when the contained number is positive',function(){
+
+//          inject(function($compile,$rootScope){
+//             
+//              var element = $compile('<div price-change>8.88</div price-change>')($rootScope);
+//              expect(element.text()).toEqual('<div class="positivePrice">8.88</div>');
+//          });
+
+
+//          });   
+//  }
+
+//)
 });
