@@ -5782,10 +5782,12 @@ button.close {
     display: none !important;
   }
 }
-/*# sourceMappingURL=ForceBot.css.map */
+
 
 /***
-      
+    
+    TODO use sourceMappingURL when css is minified to facilitate debugging
+  sourceMappingURL=ForceBot.css.map  
     vvvv   Non-bootstrap styles vvvv
     
 ***/

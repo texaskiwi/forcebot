@@ -32,21 +32,30 @@ angular.module('forcebot.directives', []).
        //}
 
    })
-   .directive('showhideSideContainer', function () {   
+   .directive('showhideSideContainer', function () {
+
 
        function toggleNav(scope, element, attrs) {
-           scope.toggleNav = function () { 
-           scope.navVisible = !scope.navVisible
-            
+           scope.toggleNav = function () {
+               scope.navVisible = !scope.navVisible;
+               if (scope.navVisible) {
+                   scope.toggleViewPortfolio = 'Hide portfolio';
+               }
+               else {
+                   scope.toggleViewPortfolio = scope.toggleViewPortfolioDefault;
+               }
+
            }
        }
 
        return {
            link: toggleNav,
-           templateUrl: 'views/showhideSideContainer.html'
+           templateUrl: 'views/showhideSideContainer.html',
+           controller:  function($scope){               
+               $scope.toggleViewPortfolioDefault = "View portfolio";
+               $scope.toggleViewPortfolio = $scope.toggleViewPortfolioDefault;
+
+           }
        }
    });
 
-   //$('[data-toggle=offcanvas]').click(function () {
-   //         $('.row-offcanvas').toggleClass('active')
-   //       });
