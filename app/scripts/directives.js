@@ -32,7 +32,12 @@ angular.module('forcebot.directives', []).
        //}
 
    })
-   .directive('showhideSideContainer', function () {
+   .directive('discuss',function(){
+       return{
+           templateUrl: 'views/discussLink.html'
+       }
+   })
+   .directive('itemSelectorContainer', function () {
 
 
        function toggleNav(scope, element, attrs) {
@@ -50,7 +55,7 @@ angular.module('forcebot.directives', []).
 
        return {
            link: toggleNav,
-           templateUrl: 'views/showhideSideContainer.html',
+           templateUrl: 'views/itemSelectorContainer.html',
            controller:  function($scope){               
                $scope.toggleViewPortfolioDefault = "View portfolio";
                $scope.toggleViewPortfolio = $scope.toggleViewPortfolioDefault;

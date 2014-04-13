@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
+using System.Diagnostics;
 using System.IO;
 using System.Web;
 using System.Runtime.Serialization.Json;
@@ -20,46 +21,49 @@ public class news : IHttpHandler
         context.Response.AddHeader("Access-Control-Allow-Origin", "*");
 
 
-        using (SqlConnection sqlConnection = new SqlConnection("server=AETHER\\SQLEXPRESS;" +
-                                       "Trusted_Connection=yes;" +
-                                       "database=forcebot; " +
-                                       "connection timeout=30"))
-        {
-            string query = "SELECT * FROM news";
-            sqlConnection.Open();
-            SqlCommand queryCommand = new SqlCommand(query, sqlConnection);
-            SqlDataReader sqlReader = queryCommand.ExecuteReader();
-
+        
 
             String output = "";
 
 
 
-            List<Stock> stockList = new List<Stock>();
+            List<News> newsList = new List<News>();
 
-            DataTable dataTable = new DataTable();
-            dataTable.Load(sqlReader);
+            var itemId = context.Request.QueryString["item"];
+            if (itemId == null)
+            {
+                context.Response.Write(output);
+                return;
+            }
+
+            var associatedItems = itemId.Split(new Char[]{','});
 
             Random random = new Random();
             
-            foreach (DataRow row in dataTable.Rows)
+         
+            for(int i=0;i<40;i++)
             {
-                String name = row["name"].ToString();
-                String symbol = row["symbol"].ToString();
-                String id = row["stock_id"].ToString();
+                DateTime now = DateTime.Now;
+                DateTime publishDate = new DateTime(now.Year, now.Month, random.Next(1,29), random.Next(23), random.Next(59), random.Next(59));
+                
+                News item = new News(){
+                     AssociatedStocks = associatedItems,
+                     Sentiment = random.Next(100) * 0.1,
+                     Summary = NLipsum.Core.LipsumGenerator.Generate(3),
+                     WhenPublished = publishDate
+                     
+                };
 
-                Stock stock = new Stock() { Name = name, Symbol = symbol, Id = id, ChangeInPriceToday = (Decimal)random.NextDouble() * 10, LastPrice = (Decimal)random.NextDouble() * 100 };
-                stockList.Add(stock);
-
-
-            };
-            sqlConnection.Close();
+                newsList.Add(item); 
+                
+            }
+           
 
 
             using (MemoryStream memoryStream = new MemoryStream())
             {
-                DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(List<Stock>));
-                serializer.WriteObject(memoryStream, stockList);
+                DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(List<News>));
+                serializer.WriteObject(memoryStream, newsList);
                 memoryStream.Position = 0;
                 using (StreamReader streamReader = new StreamReader(memoryStream))
                 {
@@ -72,7 +76,7 @@ public class news : IHttpHandler
             context.Response.Write(output);
 
 
-        };
+        
     }
 
     public bool IsReusable
