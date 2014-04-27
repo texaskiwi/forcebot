@@ -1,4 +1,26 @@
 <!-- Account logon status -->
 <!-- Account rank and badge status -->
 <!-- Portfolio -->
-<div portfolio></div>
+ <div class="row row-offcanvas row-offcanvas-right" ng-class="{'active': navVisible}">
+
+        <div class="col-xs-12 col-sm-9">
+          <p class="pull-right visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" 
+              ng-click="toggleNav()"
+              >{{toggleViewPortfolio}}</button>
+          </p>
+
+          <!-- Large item summary heading -->
+          <div class="jumbotron">
+            <div selected-stock-summary></div>
+          </div>
+
+          <!-- Item news lisings -->
+        <div item-news></div>
+      </div> 
+
+      <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+         <div portfolio-nav-list/>
+      </div> 
+
+</div>

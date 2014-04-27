@@ -15,7 +15,7 @@ describe('service', function () {
         it('should connect sucessfully to the portfolio REST service',
             inject(function (portfolioService, $rootScope, $httpBackend) {
 
-
+                // TODO rewrite to just check the form of the response
                 $httpBackend.when('GET','/REST/portfolio').respond(' [{"Id":"537065f0-d594-42db-896e-30ccbbf0b7ed","Name":"Tesla","Symbol":"TSLA"},{"Id":"35645a3d-4b85-4538-bd4c-6983523e626d","Name":"Sunpower","Symbol":"SPWR"},{"Id":"20b80944-3b44-4dd9-976b-c8281dd7d478","Name":"Apple","Symbol":"AAPL"},{"Id":"7c4fa14a-9a3e-44ff-8304-cb625a927bfc","Name":"General Electric","Symbol":"GE"},{"Id":"025b978d-586c-476f-a7b2-e150d2d1816d","Name":"iRobot","Symbol":"IRBT"}]');
 
 

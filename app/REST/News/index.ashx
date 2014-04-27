@@ -29,7 +29,7 @@ public class news : IHttpHandler
 
             List<News> newsList = new List<News>();
 
-            var itemId = context.Request.QueryString["item"];
+            var itemId = context.Request.QueryString["query"];
             if (itemId == null)
             {
                 context.Response.Write(output);
@@ -49,9 +49,10 @@ public class news : IHttpHandler
                 News item = new News(){
                      AssociatedStocks = associatedItems,
                      Sentiment = random.Next(100) * 0.1,
-                     Summary = NLipsum.Core.LipsumGenerator.Generate(3),
-                     WhenPublished = publishDate
-                     
+                     Summary = HttpUtility.HtmlEncode(NLipsum.Core.LipsumGenerator.Generate(2)),
+                     WhenPublished = publishDate,
+                     Title =new NLipsum.Core.LipsumGenerator().GenerateSentences(1)[0],
+                     Id = Guid.NewGuid().ToString()
                 };
 
                 newsList.Add(item); 

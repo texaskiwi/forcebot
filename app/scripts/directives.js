@@ -9,9 +9,9 @@ angular.module('forcebot.directives', []).
   } ])
 
 
-   .directive('portfolio', function () {
+   .directive('portfolioNavList', function () {
        return {
-           templateUrl: 'views/portfolio.html'
+           templateUrl: 'views/portfolioNavigationList.html'
        };
    })
 
@@ -22,14 +22,10 @@ angular.module('forcebot.directives', []).
    })
 
    .directive('selectedStockSummary', function () {
-
-
        return {
            templateUrl: 'views/selectedStockSummary.html'
        }
-       // return function (scope, elm) {
-       //
-       //}
+
 
    })
    .directive('discuss',function(){
@@ -37,30 +33,10 @@ angular.module('forcebot.directives', []).
            templateUrl: 'views/discussLink.html'
        }
    })
-   .directive('itemSelectorContainer', function () {
-
-
-       function toggleNav(scope, element, attrs) {
-           scope.toggleNav = function () {
-               scope.navVisible = !scope.navVisible;
-               if (scope.navVisible) {
-                   scope.toggleViewPortfolio = 'Hide portfolio';
-               }
-               else {
-                   scope.toggleViewPortfolio = scope.toggleViewPortfolioDefault;
-               }
-
-           }
+   .directive('itemNews',function(){
+       return{
+           templateUrl: 'views/itemNews.html'
        }
-
-       return {
-           link: toggleNav,
-           templateUrl: 'views/itemSelectorContainer.html',
-           controller:  function($scope){               
-               $scope.toggleViewPortfolioDefault = "View portfolio";
-               $scope.toggleViewPortfolio = $scope.toggleViewPortfolioDefault;
-
-           }
-       }
-   });
+   })
+   ;
 

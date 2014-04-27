@@ -8,9 +8,10 @@ using System.Web;
 /// </summary>
 public class Stock
 {
+     
     public String Name{ get; set; }
     public String Symbol { get; set; }
-    public String Id { get; set; }
+    public string Id { get; set; }
     public Decimal LastPrice { get; set; }
     public Decimal ChangeInPriceToday { get; set; }
 	public Stock()

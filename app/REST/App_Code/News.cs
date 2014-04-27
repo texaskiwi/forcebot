@@ -8,6 +8,8 @@ using System.Web;
 /// </summary>
 public class News
 {
+    public string Id { get; set; }
+    public String Title { get; set; }
     public String Summary { get; set; }
     public Double Sentiment { get; set; }
     public DateTime WhenPublished { get; set; }

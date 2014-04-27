@@ -1,8 +1,8 @@
 <table>
     <tr ng-repeat="coy in stocks" class="portfolioRow">
         <td>
-            <a href="#" 
-            ng-class="{active: $first}"
+            <a ng-click="selectStock(coy)"
+            ng-class="{active: coy.IsSelected}"
             class="list-group-item"> 
                 {{ coy.Symbol }} 
             
