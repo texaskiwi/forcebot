@@ -49,7 +49,7 @@ public class news : IHttpHandler
                 News item = new News(){
                      AssociatedStocks = associatedItems,
                      Sentiment = random.Next(100) * 0.1,
-                     Summary = HttpUtility.HtmlEncode(NLipsum.Core.LipsumGenerator.Generate(2)),
+                     Summary = HttpUtility.HtmlEncode(NLipsum.Core.LipsumGenerator.Generate(1)),
                      WhenPublished = publishDate,
                      Title =new NLipsum.Core.LipsumGenerator().GenerateSentences(1)[0],
                      Id = Guid.NewGuid().ToString()
