@@ -38,5 +38,10 @@ angular.module('forcebot.directives', []).
            templateUrl: 'views/itemNews.html'
        }
    })
+   .directive('itemNewsSummary',function(){
+       return{
+           templateUrl: 'views/itemNewsSummary.html'
+       }
+   })
    ;
 
