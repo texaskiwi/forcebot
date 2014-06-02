@@ -18,10 +18,15 @@ angular.module('forcebot.services', ['restangular'])
               var portfolioListPromise = portfolio.getList();
               return portfolioListPromise;
           },
-          getNews: function (param) {              
+          getNews: function (param) {
               var news = Restangular.allUrl('news');
               var newsListPromise = news.getList({ query: param });
               return newsListPromise;
+          },
+          getNewsClassificationFromDate: function (symbol, startDate) {
+              var newsClassification = Restangular.oneUrl('newsClassification');
+              var newsClassificationPromise = newsClassification.get({ symbol: symbol, startDate: startDate });
+              return newsClassificationPromise;
           }
       }
 

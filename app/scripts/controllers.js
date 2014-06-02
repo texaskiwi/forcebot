@@ -58,6 +58,16 @@ angular.module('forcebot.controllers', [])
         $scope.selectedItem = selectedItem;
     };
 
+    $scope.loadNewsSummary = function (input){
+
+        1d
+        5d
+        1m
+        3m
+        1y
+        var newsPromise = portfolioService.getNewsClassificationFromDate(startDate);
+    }
+
 
 } ]);
 
