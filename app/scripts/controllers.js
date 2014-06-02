@@ -52,20 +52,40 @@ angular.module('forcebot.controllers', [])
 
         // populate this controller's scope's selectedItem property
         var selectedItem = _.find($scope.stocks, function (stock) {
-           return stock === input;
+            return stock === input;
         });
 
         $scope.selectedItem = selectedItem;
     };
 
-    $scope.loadNewsSummary = function (input){
+    $scope.loadNewsSummary = function (input) {
 
-        1d
-        5d
-        1m
-        3m
-        1y
-        var newsPromise = portfolioService.getNewsClassificationFromDate(startDate);
+        var startDate = Date.now();
+
+        switch (input) {
+            case '1d':
+                startDate.setDate(startDate.getDate() - 1);
+                break;
+
+            case '5d':
+                startDate.setDate(startDate.getDate() - 5);
+                break;
+
+            case '1m':
+                startDate.setMonth(startDate.getMonth() - 1);
+                break;
+
+            case '3m':
+                startDate.setMonth(startDate.getMonth() - 3);
+                break;
+
+            case '1y':
+                var yearBack = startDate.getFullYear() - 1;
+                startDate.setFullYear(yearBack);
+                break;
+        }
+
+        var newsPromise = portfolioService.getNewsClassificationFromDate($scope.selectedItem, startDate);
     }
 
 
